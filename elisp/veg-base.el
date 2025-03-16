@@ -81,7 +81,7 @@
   (setq trashed-sort-key '("Date deleted" . t))
   (setq trashed-date-format "%Y-%m-%d %H:%M:%S"))
 
-(defun vegalv/keyboard-quit-dwim ()
+(defun veg/keyboard-quit-dwim ()
   "Do-What-I-Mean behaviour for a general `keyboard-quit'.
 
 The generic `keyboard-quit' does not do the expected thing when
@@ -107,7 +107,7 @@ Source: https://protesilaos.com/codelog/2024-11-28-basic-emacs-configuration/"
    (t
     (keyboard-quit))))
 
-(define-key global-map (kbd "C-g") #'vegalv/keyboard-quit-dwim)
+(define-key global-map (kbd "C-g") #'veg/keyboard-quit-dwim)
 
 
 (menu-bar-mode 1)
