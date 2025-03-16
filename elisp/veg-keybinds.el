@@ -16,6 +16,9 @@
 (global-set-key (kbd "M-d") 'veg/delete-word)
 (global-set-key (kbd "<C-backspace>") 'veg/backward-delete-word)
 
+(global-set-key (kbd "M-`") 'beginning-of-buffer)
+(global-set-key (kbd "M-~") 'end-of-buffer)
+
 ;; Org links
 ;; (global-set-key (kbd "C-c l") 'org-store-link)
 ;; (global-set-key (kbd "C-c C-l") 'org-insert-link) ;; FIXME does not need to be global
