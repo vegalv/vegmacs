@@ -13,10 +13,9 @@ This command does not push text to `kill-ring'."
 
 (defun veg/backward-delete-word (arg)
   "Delete characters backward until encountering the beginning of a word.
-With  this that many times.
+With argument, do this that many times.
 This command does not push text to `kill-ring'."
   (interactive "p")
-  (my-delete-word (- arg)))
-
+  (veg/delete-word (- arg)))
 
 (provide 'veg-functions)
