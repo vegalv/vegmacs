@@ -29,5 +29,3 @@
 ;; (define-key org-src-mode-map (kbd "C-c k") 'org-edit-src-abort)
 
 (provide 'veg-keybinds)
-
-	    
