@@ -18,6 +18,8 @@
 (global-set-key (kbd "M-d") 'veg/delete-word)
 (global-set-key (kbd "<C-backspace>") 'veg/backward-delete-word)
 
+(global-set-key (kbd "M-i") 'join-line)
+
 (global-set-key (kbd "M-`") 'beginning-of-buffer)
 (global-set-key (kbd "M-~") 'end-of-buffer)
 
