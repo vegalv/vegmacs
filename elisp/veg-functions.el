@@ -1,3 +1,6 @@
+;;; veg-functions.el --- my functions for use in Vegmacs.
+
+;;; Code:
 (defun veg/keyboard-quit-dwim ()
   "Do-What-I-Mean behaviour for a general `keyboard-quit'.
 
@@ -45,3 +48,4 @@ This command does not push text to `kill-ring'."
   (veg/delete-word (- arg)))
 
 (provide 'veg-functions)
+;;; veg-base.el ends here

@@ -1,3 +1,7 @@
+;;; veg-base.el --- the heart of my personal GNU Emacs configuration.
+
+;;; Code:
+
 ;;; Initial setup
 ;; Set custom file
 (setq custom-file (locate-user-emacs-file "custom.el"))
@@ -264,3 +268,4 @@
 (scroll-bar-mode -1)
 
 (provide 'veg-base)
+;;; veg-base.el ends here
