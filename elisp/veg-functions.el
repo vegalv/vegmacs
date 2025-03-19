@@ -48,4 +48,4 @@ This command does not push text to `kill-ring'."
   (veg/delete-word (- arg)))
 
 (provide 'veg-functions)
-;;; veg-base.el ends here
+;;; veg-functions.el ends here
