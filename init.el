@@ -6,5 +6,4 @@
 (require 'veg-functions)
 (require 'veg-keybinds)
 (require 'veg-theming)
-
-
+(require 'veg-org)
