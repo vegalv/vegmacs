@@ -26,9 +26,9 @@
 (global-set-key (kbd "C-c C-l") 'org-insert-link) ;; FIXME does not need to be global
 
 ;; TODO Move to veg-org.el
-(define-key org-mode-map (kbd "C-c æ") 'org-edit-special)
-(define-key org-src-mode-map (kbd "C-c æ") 'org-edit-src-exit)
-(define-key org-src-mode-map (kbd "C-c k") 'org-edit-src-abort)
+;; (define-key org-mode-map (kbd "C-c æ") 'org-edit-special)
+;; (define-key org-src-mode-map (kbd "C-c æ") 'org-edit-src-exit)
+;; (define-key org-src-mode-map (kbd "C-c k") 'org-edit-src-abort)
 
 (provide 'veg-keybinds)
 ;;; veg-keybinds.el ends here
