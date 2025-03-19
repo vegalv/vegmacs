@@ -108,6 +108,13 @@
   :config
   (setq dired-subtree-use-backgrounds nil))
 
+(use-package eglot
+  :hook
+  (c-mode . eglot-ensure)
+  (c++-mode . eglot-ensure)
+  :config
+  (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd")))
+
 ;; TODO add indent-bars
 (use-package org-download
   :ensure t
