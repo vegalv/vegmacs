@@ -3,7 +3,6 @@
 ;;; Code:
 
 ;;; Initial setup
-;; Set custom file
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file :no-error-if-file-is-missing)
 

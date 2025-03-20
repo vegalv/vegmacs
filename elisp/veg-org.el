@@ -8,9 +8,9 @@
 ;;;                          Base org-mode configuration
 ;;; --------------------------------------------------------------------------------
 
-(add-hook 'org-mode-hook 'variable-pitch-mode) ; Variable pitch mode for org buffers
+(add-hook 'org-mode-hook 'variable-pitch-mode) 
 
-(add-hook 'org-mode-hook 'visual-line-mode) ; Visual-line mode for org buffers
+(add-hook 'org-mode-hook 'visual-line-mode) 
 
 (setq org-hide-emphasis-markers t ; Disabling italics/bold/etc expression characters
       org-list-indent-offset 1
@@ -18,15 +18,15 @@
       org-startup-with-inline-images t
       org-image-actual-width '(500)) ;; Inline image width
 
-(setq org-support-shift-select t) ; Enable shift selection
+(setq org-support-shift-select t)
 
-(setq org-src-fontify-natively t) ; Fontify code in source blocks
+(setq org-src-fontify-natively t) 
 
 (setq org-src-tab-acts-natively t) ; Tab indentation in source blocks
 
 (setq org-tags-column 0) ; No tag alignment
 
-(setq org-fontify-quote-and-verse-blocks t) ; Fontifying quote and verse blocks
+(setq org-fontify-quote-and-verse-blocks t) 
 
 (setq org-ellipsis "…") ; Ellipsis on folded headings
 
