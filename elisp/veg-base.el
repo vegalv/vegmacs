@@ -227,11 +227,6 @@
 (setq-default truncate-lines t)
 (setq line-spacing 0.1)
 
-;; Completion with company
-(add-hook 'after-init-hook 'global-company-mode)
-(setq company-global-modes '(not org-mode)) ; not in org
-(setq company-dabbrev-other-buffers t) ; if t, search buffers with the same major mode
-
 ;; No tab indentation
 (setq-default indent-tabs-mode nil)
 
@@ -243,9 +238,6 @@
 ;; Display line numbers
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (setq display-line-numbers-type 'relative)
-
-;; No tab indentation
-(setq-default indent-tabs-mode nil)
 
 ;; Making Emacs accept sentences ending in a single space
 (setq sentence-end-double-space nil)
