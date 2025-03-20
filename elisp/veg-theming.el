@@ -43,8 +43,8 @@ This function is added to the `modus-themes-post-load-hook'."
 
   ;; Using the hook lets our changes persist when we use the commands
   ;; `modus-themes-toggle' and `modus-themes-select'.
-    (add-hook 'modus-themes-post-load-hook #'my-modus-themes-custom-faces)
-    (modus-themes-select 'modus-vivendi)
+(add-hook 'modus-themes-post-load-hook #'my-modus-themes-custom-faces)
+(modus-themes-select 'modus-vivendi)
 
 (load-theme 'modus-vivendi)
 
