@@ -113,6 +113,9 @@
              ,(concat "* %? \n"))
 
             ("n" "Note" entry (file ,notes)
+             ,(concat "* %? \n"))
+
+            ("s" "Stash" entry (file ,stash)
              ,(concat "* %? \n"))))
 
     (add-hook 'org-capture-mode-hook 'delete-other-windows)
