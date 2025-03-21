@@ -37,7 +37,6 @@
          calendar-norway-dst)))
 
 (use-package company
-  (add-hook 'after-init-hook 'global-company-mode)
   :ensure t
   :hook
   (after-init . global-company-mode)
