@@ -10,8 +10,7 @@
                                 (interactive)
                                 (other-window -1)))
 
-;; Disable suspend-frame on C-z (use it for something cool instead?)
-(global-unset-key "\C-z")
+;; Use C-z for undo instead of suspend-frame
 (global-set-key (kbd "C-z") 'undo)
 
 ;; Delete words without copying to kill-ring
@@ -19,9 +18,10 @@
 (global-set-key (kbd "<C-backspace>") 'veg/backward-delete-word)
 
 (global-set-key (kbd "M-i") 'join-line)
-
 (global-set-key (kbd "M-`") 'beginning-of-buffer)
+
 (global-set-key (kbd "M-~") 'end-of-buffer)
+(global-set-key (kbd "<f12>") 'toggle-frame-fullscreen)
 
 ;; Org links
 (global-set-key (kbd "C-c l") 'org-store-link)
