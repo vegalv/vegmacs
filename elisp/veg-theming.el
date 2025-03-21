@@ -38,11 +38,12 @@ This function is added to the `modus-themes-post-load-hook'."
        ;; olivetti-mode
        `(olivetti-fringe ((,c :background ,bg-main)))
        ;; org
-       `(org-block ((,c :background ,bg-dim :extend t)))
-       ))))
+       `(org-block ((,c :background ,bg-dim :extend t)))))))
 
-  ;; Using the hook lets our changes persist when we use the commands
-  ;; `modus-themes-toggle' and `modus-themes-select'.
+(global-set-key (kbd "C-c m") 'modus-themes-toggle)
+
+;; Using the hook lets our changes persist when we use the commands
+;; `modus-themes-toggle' and `modus-themes-select'.
 (add-hook 'modus-themes-post-load-hook #'my-modus-themes-custom-faces)
 (modus-themes-select 'modus-vivendi)
 
