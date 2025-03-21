@@ -34,7 +34,10 @@
 
 (setq org-format-latex-options '(:foreground default :background default :scale 1.7 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
                                              ("begin" "$1" "$" "$$" "\\(" "\\[")))
+
 (setq org-goto-auto-isearch nil) ; Allows navigation with n/p/etc. with org-goto
+
+(setq org-startup-folded 'fold)
 
 (use-package org-superstar
   :ensure t
