@@ -204,7 +204,9 @@
 (setq-default pdf-view-display-size 'fit-page)
 (with-eval-after-load 'pdf-view
   (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
-  (define-key pdf-view-mode-map (kbd "C-c m") 'pdf-view-midnight-minor-mode))
+  (define-key pdf-view-mode-map (kbd "C-c m") 'pdf-view-midnight-minor-mode)
+  ;; Fix outline view breaking in full screen mode on MacOS
+  (setopt pdf-annot-tweak-tooltips nil))
 
 ;;; Programming languages
 ;; TODO elpy
