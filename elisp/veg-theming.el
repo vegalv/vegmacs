@@ -8,7 +8,8 @@
       modus-themes-org-blocks 'default
       modus-themes-to-toggle '(modus-vivendi modus-operandi-tinted)
       modus-themes-italic-constructs nil
-      modus-themes-bold-constructs t)
+      modus-themes-bold-constructs t
+      modus-themes-common-palette-overrides modus-themes-preset-overrides-faint)
 
 (let ((mono-spaced-font "Aporetic Sans Mono")
 	(proportionally-spaced-font "Aporetic Sans"))
