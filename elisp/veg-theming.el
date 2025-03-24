@@ -27,8 +27,8 @@ This function is added to the `modus-themes-post-load-hook'."
        ;; highlight-indentation-mode
        ;; `(highlight-indentation-face ((,c :background ,bg-main)))
        ;; dashboard
-       ;; `(dashboard-text-banner ((,c :foreground ,magenta-faint)))
-       ;; `(dashboard-heading ((,c :weight bold :foreground ,magenta-faint)))
+       `(dashboard-text-banner ((,c :weight bold :foreground ,magenta-faint)))
+       `(dashboard-heading ((,c :weight bold :foreground ,magenta-faint)))
        ;; ivy
        `(ivy-modified-buffer ((,c :foreground ,magenta)))
        `(ivy-org ((,c :foreground ,blue-faint :weight normal)))
