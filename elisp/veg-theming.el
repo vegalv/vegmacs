@@ -1,4 +1,4 @@
-;;; veg-theming.el --- my personal theme configuration using the Modus themes.
+;;; veg-theming.el --- my personal theme configuration using the Ef-themes.
 
 ;;; Code:
 
