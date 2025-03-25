@@ -39,7 +39,8 @@ This function is added to the `modus-themes-post-load-hook'."
        ;; olivetti-mode
        `(olivetti-fringe ((,c :background ,bg-main)))
        ;; org
-       `(org-block ((,c :background ,bg-dim :extend t)))))))
+       `(org-block ((,c :background ,bg-dim :extend t)))
+       `(org-tag ((,c :foreground ,fg-dim :weight bold)))))))
 
 (global-set-key (kbd "C-c m") 'modus-themes-toggle)
 
