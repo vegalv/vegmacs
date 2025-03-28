@@ -6,8 +6,8 @@
 
 (setq modus-themes-mixed-fonts t
       modus-themes-org-blocks 'default
-      modus-themes-to-toggle '(modus-vivendi-tinted modus-operandi-tinted)
-      modus-themes-bold-constructs t
+      modus-themes-to-toggle '(modus-vivendi modus-operandi-tinted)
+      modus-themes-bold-constructs nil
       modus-themes-italic-constructs t)
 
 (let ((mono-spaced-font "Aporetic Sans Mono")
@@ -46,6 +46,6 @@ This function is added to the `modus-themes-post-load-hook'."
 ;; Using the hook lets our changes persist when we use the commands
 ;; `modus-themes-toggle' and `modus-themes-select'.
 (add-hook 'modus-themes-post-load-hook #'my-modus-themes-custom-faces)
-(modus-themes-select 'modus-vivendi-tinted)
+(modus-themes-select 'modus-vivendi)
 
 (provide 'veg-theming)
