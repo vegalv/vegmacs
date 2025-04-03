@@ -157,7 +157,10 @@
 (use-package magit
   :ensure t)
 
-;; TODO add magit-todo
+(use-package magit-todos
+  :ensure t
+  :after magit
+  :config (magit-todos-mode 1))
 
 (use-package markdown-mode
   :ensure t)
