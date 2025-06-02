@@ -113,6 +113,12 @@
   :config
   (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd")))
 
+(use-package elpy
+  :ensure t
+  :defer t
+  :init
+  (advice-add 'python-mode :before 'elpy-enable))
+
 ;; TODO add indent-bars
 (use-package org-download
   :ensure t
