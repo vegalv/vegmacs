@@ -149,6 +149,16 @@
 (use-package swiper
   :ensure t)
 
+(use-package spacious-padding
+  :config
+  (setq spacious-padding-widths
+      '( :internal-border-width 15
+         :header-line-width 4
+         :mode-line-width 1
+         :tab-width 4
+         :right-divider-width 30
+         :scroll-bar-width 8)))
+
 (use-package ivy
   :ensure t
   :bind (("C-c s" . swiper)
@@ -168,6 +178,7 @@
 (use-package magit
   :ensure t)
 
+;; TODO Fix - does not work
 (use-package magit-todos
   :ensure t
   :after magit
@@ -223,7 +234,6 @@
   (setopt pdf-annot-tweak-tooltips nil))
 
 ;;; Programming languages
-;; TODO elpy
 ;; TODO eglot, clang
 ;; TODO x86 lookup
 (setq asm-comment-char 35)
@@ -239,7 +249,6 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (setq-default truncate-lines t)
-(setq line-spacing 0.1)
 
 ;; No tab indentation
 (setq-default indent-tabs-mode nil)
@@ -275,7 +284,6 @@
            (setq-local electric-pair-inhibit-predicate
                    `(lambda (c)
                       (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
-(menu-bar-mode -1)
 (tool-bar-mode -1)
 (tooltip-mode -1)
 (scroll-bar-mode -1)
