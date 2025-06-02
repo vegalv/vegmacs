@@ -119,6 +119,11 @@
   :init
   (advice-add 'python-mode :before 'elpy-enable))
 
+
+(use-package hl-todo
+  :config
+  (global-hl-todo-mode))
+
 ;; TODO add indent-bars
 (use-package org-download
   :ensure t
