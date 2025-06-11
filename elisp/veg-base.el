@@ -111,7 +111,12 @@
   (c-mode . eglot-ensure)
   (c++-mode . eglot-ensure)
   :config
-  (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd")))
+  (add-to-list 'eglot-server-programs
+               '((c++-mode c-mode) .
+                 ("clangd"
+                  ;;"--header-insertion=never"
+                  ;;"--background-index"
+                  "--fallback-style=none")))
 
 (use-package elpy
   :ensure t
@@ -150,7 +155,8 @@
   :ensure t)
 
 (use-package spacious-padding
-  :config
+  :init
+  (spacious-padding-mode t)
   (setq spacious-padding-widths
       '( :internal-border-width 15
          :header-line-width 4
@@ -190,6 +196,8 @@
 (use-package mood-line
   :ensure t
   :config (mood-line-mode))
+
+
 
 (use-package paren-face
   :ensure t
