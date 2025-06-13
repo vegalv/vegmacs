@@ -8,8 +8,9 @@
       modus-themes-org-blocks 'default
       modus-themes-to-toggle '(modus-vivendi modus-operandi-tinted)
       modus-themes-bold-constructs t
-      modus-themes-italic-constructs t
-      modus-themes-common-palette-overrides modus-themes-preset-overrides-faint)
+      modus-themes-italic-constructs nil
+      ;; modus-themes-common-palette-overrides modus-themes-preset-overrides-faint
+      modus-themes-common-palette-overrides nil)
 
 (let ((mono-spaced-font "Aporetic Sans Mono")
 	(proportionally-spaced-font "Aporetic Sans"))
@@ -30,6 +31,9 @@ This function is added to the `modus-themes-post-load-hook'."
        ;; dashboard
        `(dashboard-text-banner ((,c :weight bold :foreground ,magenta-faint)))
        `(dashboard-heading ((,c :weight bold :foreground ,magenta-faint)))
+       ;; font-lock
+       `(font-lock-variable-name-face ((,c :foreground ,fg-main :slant italic)))
+       `(font-lock-type-face ((,c :foreground ,fg-alt :weight bold :slant normal)))
        ;; ivy
        `(ivy-modified-buffer ((,c :foreground ,magenta)))
        `(ivy-org ((,c :foreground ,blue-faint :weight normal)))
@@ -39,6 +43,7 @@ This function is added to the `modus-themes-post-load-hook'."
        ;; olivetti-mode
        `(olivetti-fringe ((,c :background ,bg-main)))
        ;; org
+       ;; TODO make agenda not look terrible
        `(org-block ((,c :background ,bg-dim :extend t)))
        `(org-tag ((,c :foreground ,fg-dim :weight bold)))))))
 
