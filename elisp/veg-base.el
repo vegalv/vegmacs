@@ -213,6 +213,13 @@
 (use-package rainbow-mode
   :ensure t)
 
+
+(use-package symex
+  :config
+  (symex-initialize)
+  ;; :bind ("s-;" . symex-mode-interface)
+  )
+
 (use-package vterm
   :ensure t)
 
