@@ -41,6 +41,7 @@
   :hook
   (after-init . global-company-mode)
   :config
+  (setq company-idle-delay 0.4)
   (setq company-global-modes '(not org-mode)) ; not in org
   (setq company-dabbrev-other-buffers t)) ; if t, search buffers with the same major mode
 
