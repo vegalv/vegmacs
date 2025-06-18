@@ -1,4 +1,4 @@
-;;; veg-theming.el --- my personal theme configuration using the Ef-themes.
+;;; veg-theming.el --- my personal theme configuration on top of the Modus themes.
 
 ;;; Code:
 
@@ -8,9 +8,7 @@
       modus-themes-org-blocks 'default
       modus-themes-to-toggle '(modus-vivendi modus-operandi-tinted)
       modus-themes-bold-constructs t
-      modus-themes-italic-constructs nil
-      ;; modus-themes-common-palette-overrides modus-themes-preset-overrides-faint
-      modus-themes-common-palette-overrides nil)
+      modus-vivendi-tinted-palette-overrides '((comment fg-dim)))
 
 (let ((mono-spaced-font "Aporetic Sans Mono")
 	(proportionally-spaced-font "Aporetic Sans"))
@@ -23,17 +21,17 @@
 This function is added to the `modus-themes-post-load-hook'."
     (modus-themes-with-colors
       (custom-set-faces
-       ;;; core
+       ;; core
        `(fringe ((,c :background ,bg-main)))
        `(line-number ((,c :background ,bg-main)))
-       ;; highlight-indentation-mode
-       ;; `(highlight-indentation-face ((,c :background ,bg-main)))
        ;; dashboard
        `(dashboard-text-banner ((,c :weight bold :foreground ,magenta-faint)))
        `(dashboard-heading ((,c :weight bold :foreground ,magenta-faint)))
        ;; font-lock
        `(font-lock-variable-name-face ((,c :foreground ,fg-main :slant italic)))
        `(font-lock-type-face ((,c :foreground ,fg-alt :weight bold :slant normal)))
+       ;; git
+       `(git-commit-summary ((,c :foreground ,fg-alt :weight bold)))
        ;; ivy
        `(ivy-modified-buffer ((,c :foreground ,magenta)))
        `(ivy-org ((,c :foreground ,blue-faint :weight normal)))
@@ -43,9 +41,23 @@ This function is added to the `modus-themes-post-load-hook'."
        ;; olivetti-mode
        `(olivetti-fringe ((,c :background ,bg-main)))
        ;; org
-       ;; TODO make agenda not look terrible
+       `(org-agenda-date ((,c :foreground ,fg-alt :weight bold)))
+       `(org-agenda-date-today ((,c :foreground ,fg-alt :underline ,fg-alt :weight bold)))
+       `(org-agenda-calendar-event ((,c :foreground ,fg-alt :slant italic)))
+       `(org-agenda-date-weekend ((,c :foreground ,fg-main)))
+       `(org-date ((,c :foreground ,fg-alt)))
+       `(org-deadline ((,c :foreground ,red-faint)))
+       `(org-imminent-deadline ((,c :foreground ,red-faint)))
+       `(org-upcoming-deadline ((,c :foreground ,red-faint)))
+       `(org-upcoming-distant-deadline ((,c :foreground ,red-faint)))
+       `(org-scheduled ((,c :foreground ,fg-alt)))
+       `(org-scheduled-previously ((,c :foreground ,fg-alt)))
        `(org-block ((,c :background ,bg-dim :extend t)))
-       `(org-tag ((,c :foreground ,fg-dim :weight bold)))))))
+       `(org-tag ((,c :foreground ,fg-dim :weight bold)))
+       `(org-done ((,c :foreground ,green-faint)))
+       `(org-todo ((,c :foreground ,red-faint)))
+       `(org-verbatim ((,c :foreground ,magenta-faint)))
+       `(org-document-title ((,c :foreground ,fg-alt :weight bold)))))))
 
 (global-set-key (kbd "C-c m") 'modus-themes-toggle)
 
@@ -55,3 +67,4 @@ This function is added to the `modus-themes-post-load-hook'."
 (modus-themes-select 'modus-vivendi)
 
 (provide 'veg-theming)
+;; veg-theming.el ends here
