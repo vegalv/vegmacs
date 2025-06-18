@@ -6,7 +6,7 @@
 
 (setq modus-themes-mixed-fonts t
       modus-themes-org-blocks 'default
-      modus-themes-to-toggle '(modus-vivendi modus-operandi-tinted)
+      modus-themes-to-toggle '(modus-vivendi-tinted modus-operandi-tinted)
       modus-themes-bold-constructs t
       modus-vivendi-tinted-palette-overrides '((comment fg-dim)))
 
@@ -64,7 +64,7 @@ This function is added to the `modus-themes-post-load-hook'."
 ;; Using the hook lets our changes persist when we use the commands
 ;; `modus-themes-toggle' and `modus-themes-select'.
 (add-hook 'modus-themes-post-load-hook #'my-modus-themes-custom-faces)
-(modus-themes-select 'modus-vivendi)
+(modus-themes-select 'modus-vivendi-tinted)
 
 (provide 'veg-theming)
 ;; veg-theming.el ends here
