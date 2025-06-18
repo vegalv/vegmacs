@@ -51,6 +51,13 @@
   ;; Set org-indent face to constant height to get proper height in variable-pitch-mode
   (set-face-attribute 'org-indent nil :height 160))
 
+(use-package org-reverse-datetree
+  :ensure t)
+
+(use-package doct
+  :ensure t
+  :commands (doct))
+
 ;;; ===============================================================================
 ;;;                                       org-babel
 ;;; -------------------------------------------------------------------------------
@@ -92,8 +99,7 @@
         (recurrent (concat agenda-dir "recurrent.org"))
         (tasks (concat agenda-dir "tasks.org"))
         (calendar (concat agenda-dir "calendar.org"))
-        (in3000-os "/Users/vegalv/in3000/in3000-os.org")
-        (in2000-sw "/Users/vegalv/in2000/in2000-sw.org"))
+        (in3000-os "/Users/vegalv/in3000/in3000-os.org"))
 
     (setq org-agenda-files (list inbox
                                  uiobox
@@ -103,13 +109,14 @@
                                  tasks
                                  calendar
                                  in3000-os
-                                 in2000-sw))
+                                 "/Users/vegalv/org/agenda/test-datetree.org"))
+    
     ;;; Org-Capture
     (setq org-capture-templates
           `(("t" "Todo" entry  (file ,inbox)
              ,(concat "* TODO %?\n")) ; %U gives date, day and time
 
-            ("e" "Event" entry (file+olp+datetree "~/org/agenda/calendar.org")
+            ("e" "Event" entry (file+olp+datetree ,calendar)
              "* %?\n %T" :time-prompt t :tree-type month)
 
             ("u" "UiO note" entry (file ,uiobox)
@@ -117,6 +124,10 @@
 
             ("n" "Note" entry (file ,notes)
              ,(concat "* %? \n"))
+
+            ;; TODO Use doct... Should probably convert all templates
+            ;; ("x" "Test datetree" entry (file ,notes)
+            ;;  ,(concat "* %? \n"))
 
             ("s" "Stash" entry (file ,stash)
              ,(concat "* %? \n"))))
@@ -175,11 +186,6 @@ See also `org-save-all-org-buffers'"
           (tags "CLOSED>=\"<today>\""
                 ((org-agenda-overriding-header "\nCompleted today"))))
 
-         ((org-agenda-compact-blocks t)))
-
-        ("h" "IN2000"
-         ((tags-todo "in2000&general"
-                     ((org-agenda-overriding-header "IN2000"))))
          ((org-agenda-compact-blocks t)))
 
         ("k" "IN3000 General"

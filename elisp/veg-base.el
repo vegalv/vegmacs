@@ -185,7 +185,6 @@
 (use-package magit
   :ensure t)
 
-;; TODO Fix - does not work
 (use-package magit-todos
   :ensure t
   :after magit
@@ -197,8 +196,6 @@
 (use-package mood-line
   :ensure t
   :config (mood-line-mode))
-
-
 
 (use-package paren-face
   :ensure t
