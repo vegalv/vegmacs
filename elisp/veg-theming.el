@@ -54,8 +54,9 @@ This function is added to the `modus-themes-post-load-hook'."
        `(org-scheduled-previously ((,c :foreground ,fg-alt)))
        `(org-block ((,c :background ,bg-dim :extend t)))
        `(org-tag ((,c :foreground ,fg-dim :weight bold)))
-       `(org-done ((,c :foreground ,green-faint)))
-       `(org-todo ((,c :foreground ,red-faint)))
+       `(org-done ((,c :foreground ,green-cooler)))
+       `(org-headline-done ((,c :foreground ,fg-dim)))
+       `(org-todo ((,c :foreground ,red-cooler)))
        `(org-verbatim ((,c :foreground ,magenta-faint)))
        `(org-document-title ((,c :foreground ,fg-alt :weight bold)))))))
 
