@@ -25,6 +25,9 @@
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
+;; Set load path
+(add-to-list 'load-path (concat user-emacs-directory "packages/emacs-ob-racket"))
+
 (use-package calendar-norway
   :ensure t
   :config
@@ -200,7 +203,8 @@
 (use-package paren-face
   :ensure t
   :hook
-  (emacs-lisp-mode . paren-face-mode))
+  (emacs-lisp-mode . paren-face-mode)
+  (racket-mode . paren-face-mode))
 
 (use-package pdf-view-restore
   :ensure t
@@ -210,7 +214,6 @@
 
 (use-package rainbow-mode
   :ensure t)
-
 
 (use-package symex
   :config

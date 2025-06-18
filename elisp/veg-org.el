@@ -70,7 +70,7 @@
    (C . t)
    (latex . t)
    (java . t)
-   ;; (racket . t)
+   (racket . t)
    (sql . t)))
 
 ;; Name of the command for executing Python code
