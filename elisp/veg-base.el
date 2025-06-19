@@ -120,7 +120,7 @@
                  ("clangd"
                   ;;"--header-insertion=never"
                   ;;"--background-index"
-                  "--fallback-style=none")))
+                  "--fallback-style=none"))))
 
 (use-package elpy
   :ensure t
