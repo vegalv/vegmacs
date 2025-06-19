@@ -200,6 +200,11 @@
   :ensure t
   :config (mood-line-mode))
 
+(use-package paredit
+  :hook
+  (emacs-lisp-mode . paredit-mode)
+  (racket-mode . paredit-mode))
+
 (use-package paren-face
   :ensure t
   :hook
