@@ -151,6 +151,7 @@
   :hook
   (org-mode . olivetti-mode)
   (Info-mode . olivetti-mode)
+  (markdown-mode . olivetti-mode)
   :config
   (setq-default olivetti-body-width 90)
   (setq olivetti-style t))
