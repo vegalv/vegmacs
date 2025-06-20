@@ -98,8 +98,7 @@
         (stash (concat agenda-dir "stash.org"))
         (recurrent (concat agenda-dir "recurrent.org"))
         (tasks (concat agenda-dir "tasks.org"))
-        (calendar (concat agenda-dir "calendar.org"))
-        (in3000-os "/Users/vegalv/in3000/in3000-os.org"))
+        (calendar (concat agenda-dir "calendar.org")))
 
     (setq org-agenda-files (list inbox
                                  uiobox
@@ -107,30 +106,28 @@
                                  stash
                                  recurrent
                                  tasks
-                                 calendar
-                                 in3000-os
-                                 "/Users/vegalv/org/agenda/test-datetree.org"))
+                                 calendar))
     
-    ;;; Org-Capture
     (setq org-capture-templates
-          `(("t" "Todo" entry  (file ,inbox)
-             ,(concat "* TODO %?\n")) ; %U gives date, day and time
+          (doct `(
+                  ("Todo" :keys "t"
+                   :file ,inbox
+                   :template ("* TODO %?"))
 
-            ("e" "Event" entry (file+olp+datetree ,calendar)
-             "* %?\n %T" :time-prompt t :tree-type month)
+                  ("Event" :keys "e"
+                   :file ,calendar
+                   :datetree t
+                   :time-prompt t
+                   :template ("* %?\n %T"))
 
-            ("u" "UiO note" entry (file ,uiobox)
-             ,(concat "* %? \n"))
+                  ("Note" :keys "n"
+                   :file ,notes
+                   :template ("* %?"))
 
-            ("n" "Note" entry (file ,notes)
-             ,(concat "* %? \n"))
-
-            ;; TODO Use doct... Should probably convert all templates
-            ;; ("x" "Test datetree" entry (file ,notes)
-            ;;  ,(concat "* %? \n"))
-
-            ("s" "Stash" entry (file ,stash)
-             ,(concat "* %? \n"))))
+                  ("Stash" :keys "s"
+                   :file ,stash
+                   :function org-reverse-datetree-goto-date-in-file
+                   :template ("* %?")))))
 
     (add-hook 'org-capture-mode-hook 'delete-other-windows)
 
@@ -140,9 +137,7 @@
 
     (setq org-refile-targets
           `((tasks :maxlevel . 1)
-            (notes :maxlevel . 1)
-            (in2000-sw :maxlevel . 3)
-            (in3000-os :maxlevel . 3)))
+            (notes :maxlevel . 1)))
 
     ;; Automatic saving after refiling
     ;; Save the corresponding buffers
@@ -186,16 +181,6 @@ See also `org-save-all-org-buffers'"
           (tags "CLOSED>=\"<today>\""
                 ((org-agenda-overriding-header "\nCompleted today"))))
 
-         ((org-agenda-compact-blocks t)))
-
-        ("k" "IN3000 General"
-         ((tags-todo "in3000&general"
-                     ((org-agenda-overriding-header "IN3000 General"))))
-         ((org-agenda-compact-blocks t)))
-
-        ("l" "IN3000 Oblig"
-         ((tags-todo "in2000&oblig"
-                     ((org-agenda-overriding-header "IN3000 Oblig"))))
          ((org-agenda-compact-blocks t)))))
 
 (setq org-agenda-restore-windows-after-quit t)
