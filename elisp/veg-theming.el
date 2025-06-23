@@ -31,7 +31,7 @@ This function is added to the `modus-themes-post-load-hook'."
        ;; font-lock
        `(font-lock-constant-face ((,c :foreground ,blue-faint)))
        `(font-lock-variable-name-face ((,c :foreground ,fg-main :slant italic)))
-       `(font-lock-type-face ((,c :foreground ,fg-alt :weight bold :slant normal)))
+      `(font-lock-type-face ((,c :foreground ,fg-alt)))
        ;; git
        `(git-commit-summary ((,c :foreground ,fg-alt :weight bold)))
        ;; ivy
