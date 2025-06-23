@@ -27,6 +27,7 @@
 
 ;; Set load path
 (add-to-list 'load-path (concat user-emacs-directory "packages/emacs-ob-racket"))
+(add-to-list 'load-path (concat user-emacs-directory "packages/org-typst-preview"))
 
 (use-package calendar-norway
   :ensure t
@@ -200,6 +201,12 @@
 (use-package mood-line
   :ensure t
   :config (mood-line-mode))
+
+(use-package org-typst-preview
+  :after org)
+
+(use-package ox-typst
+  :after org)
 
 (use-package paredit
   :hook
