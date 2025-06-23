@@ -19,9 +19,9 @@
 
 (global-set-key (kbd "M-i") 'join-line)
 (global-set-key (kbd "M-`") 'beginning-of-buffer)
-
 (global-set-key (kbd "M-~") 'end-of-buffer)
 (global-set-key (kbd "<f12>") 'toggle-frame-fullscreen)
+(global-set-key (kbd "C-c t") 'vterm)
 
 ;; Org links
 (global-set-key (kbd "C-c l") 'org-store-link)
