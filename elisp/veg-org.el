@@ -163,27 +163,37 @@ See also `org-save-all-org-buffers'"
 
 ;;; Agenda view
 (setq org-deadline-warning-days 3)
-(setq org-agenda-hide-tags-regexp ".") ;; hides ALL tags in agenda view. Can customize this if we want to
+;; (setq org-agenda-hide-tags-regexp ".") ;; hides ALL tags in agenda view. Can customize this if we want to
 (setq org-agenda-skip-scheduled-if-done t)
 
 ;;; Custom agenda view
 (setq org-agenda-custom-commands
-      '(("g" "Main agenda"
+      '(("f" "IFI agenda"
          ((agenda ""
-                  ((org-agenda-span 1)
+                  ((org-agenda-span 7)
                    (org-deadline-warning-days 3)
                    (org-agenda-get-deadlines)))
-
           (todo "NEXT"
                 ((org-agenda-overriding-header "\nActive tasks")))
 
-          (todo "WAITING"
-                ((org-agenda-overriding-header "\nBlocked tasks")))
+          (tags-todo "+in4070"
+                     ((org-agenda-overriding-header "\nIN4070 - Logikk")))
+
+          (tags-todo "+in4120"
+                     ((org-agenda-overriding-header "\nIN4120 - Søketeknologi")))
+          
+          (tags-todo "+in5060"
+                     ((org-agenda-overriding-header "\nIN5060 - Kvantitativ ytelsesanalyse")))
+          
+          ;; (todo "WAITING"
+          ;;       ((org-agenda-overriding-header "\nBlocked tasks")))
 
           (tags "CLOSED>=\"<today>\""
                 ((org-agenda-overriding-header "\nCompleted today"))))
 
-         ((org-agenda-compact-blocks t)))))
+         ;; Note: tag filtering can only be done agenda-wide, not per block
+         ((org-agenda-tag-filter-preset '("+ifi"))
+          (org-agenda-compact-blocks t)))))
 
 (setq org-agenda-restore-windows-after-quit t)
 
