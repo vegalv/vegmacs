@@ -91,70 +91,72 @@
 (define-key global-map    (kbd "C-c c")  'org-capture)
 (define-key global-map    (kbd "C-c a")  'org-agenda)
 
-(let ((agenda-dir "/Users/vegalv/org/agenda/"))
-  (let ((inbox (concat agenda-dir "inbox.org"))
-        (uiobox (concat agenda-dir "uiobox.org"))
-        (notes (concat agenda-dir "notes.org"))
-        (stash (concat agenda-dir "stash.org"))
-        (recurrent (concat agenda-dir "recurrent.org"))
-        (tasks (concat agenda-dir "tasks.org"))
-        (calendar (concat agenda-dir "calendar.org")))
+(let* ((agenda-dir "~/org/agenda/")
+       (todo-inbox (concat agenda-dir "todo-inbox.org"))
+       (notes (concat agenda-dir "notes.org"))
+       (calendar (concat agenda-dir "calendar.org"))
+       (ifi-notes (concat agenda-dir "ifi-notes.org"))
+       (todos (concat agenda-dir "todo.org"))
+       (recurrent (concat agenda-dir "recurrent.org")))
 
-    (setq org-agenda-files (list inbox
-                                 uiobox
-                                 notes
-                                 stash
-                                 recurrent
-                                 tasks
-                                 calendar))
-    
-    (setq org-capture-templates
-          (doct `(
-                  ("Todo" :keys "t"
-                   :file ,inbox
-                   :template ("* TODO %?"))
+  (setq org-agenda-files (list todo-inbox
+                               notes
+                               calendar
+                               ifi-notes
+                               todos
+                               recurrent))
+  
+  (setq org-capture-templates
+        (doct `(
+                ("Todo" :keys "t"
+                 :file ,todo-inbox
+                 :template ("* TODO %?"))
 
-                  ("Event" :keys "e"
-                   :file ,calendar
-                   :datetree t
-                   :time-prompt t
-                   :template ("* %?\n %T"))
+                ("Event" :keys "e"
+                 :file ,calendar
+                 :datetree t
+                 :time-prompt t
+                 :template ("* %?\n %T"))
 
-                  ("Note" :keys "n"
-                   :file ,notes
-                   :template ("* %?"))
+                ("Note" :keys "n"
+                 :file ,notes
+                 :function org-reverse-datetree-goto-date-in-file
+                 :template ("* %?"))
 
-                  ("Stash" :keys "s"
-                   :file ,stash
-                   :function org-reverse-datetree-goto-date-in-file
-                   :template ("* %?")))))
+                ("IFI note" :keys "i"
+                 :file ,ifi-notes
+                 :function org-reverse-datetree-goto-date-in-file
+                 :template ("* %?")))))
 
-    (add-hook 'org-capture-mode-hook 'delete-other-windows)
+  (add-hook 'org-capture-mode-hook 'delete-other-windows)
 
-    ;;; Refile
-    (setq org-refile-use-outline-path 'file)
-    (setq org-outline-path-complete-in-steps nil)
+;;; Refile
+  (setq org-refile-use-outline-path 'file)
+  (setq org-outline-path-complete-in-steps nil)
 
-    (setq org-refile-targets
-          `((tasks :maxlevel . 1)
-            (notes :maxlevel . 1)))
+  (setq org-refile-targets
+        `((,todos :maxlevel . 1)
+          (,notes :maxlevel . 1)
+          ("~/in4070-logikk/in4070-logikk.org" :maxlevel . 1)
+          ("~/in4120-soketeknologi/in4120-soketeknologi.org" :maxlevel . 1)
+          ("~/in5060-ytelse/in5060-ytelse.org" :maxlevel . 1))))
 
-    ;; Automatic saving after refiling
-    ;; Save the corresponding buffers
-    (defun save-org-buffers ()
-      "Save `org-agenda-files' buffers without user confirmation.
+  ;; Automatic saving after refiling
+  ;; Save the corresponding buffers
+  (defun save-org-buffers ()
+    "Save `org-agenda-files' buffers without user confirmation.
 See also `org-save-all-org-buffers'"
-      (interactive)
-      (message "Saving org-agenda-files buffers...")
-      (save-some-buffers t (lambda ()
-                             (when (member (buffer-file-name) org-agenda-files)
-                               t)))
-      (message "Saving org-agenda-files buffers... done"))
+    (interactive)
+    (message "Saving org-agenda-files buffers...")
+    (save-some-buffers t (lambda ()
+                           (when (member (buffer-file-name) org-agenda-files)
+                             t)))
+    (message "Saving org-agenda-files buffers... done"))
 
-    ;; Add it after refile
-    (advice-add 'org-refile :after
-                (lambda (&rest _)
-                  (save-org-buffers)))))
+  ;; Add it after refile
+  (advice-add 'org-refile :after
+              (lambda (&rest _)
+                (save-org-buffers)))
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "|" "CANCELLED" "DONE(D)")))
