@@ -88,7 +88,6 @@
 ;;; --------------------------------------------------------------------------------
 ;;; Key bindings
 (define-key global-map    (kbd "C-c c")  'org-capture)
-(define-key global-map    (kbd "C-c i")  'org-capture-inbox)
 (define-key global-map    (kbd "C-c a")  'org-agenda)
 
 (let ((agenda-dir "/Users/vegalv/org/agenda/"))
