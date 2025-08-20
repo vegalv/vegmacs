@@ -8,15 +8,19 @@
       modus-themes-org-blocks 'default
       modus-themes-to-toggle '(modus-vivendi-tinted modus-operandi-tinted)
       modus-themes-bold-constructs t
-      modus-vivendi-tinted-palette-overrides '((comment fg-dim)))
+      modus-vivendi-tinted-palette-overrides '((comment fg-dim))
+      modus-operandi-tinted-palette-overrides '((comment red-faint))
+      modus-themes-common-palette-overrides nil
+      ;; modus-themes-common-palette-overrides modus-themes-preset-overrides-faint
+      )
 
 (let ((mono-spaced-font "Aporetic Sans Mono")
-	(proportionally-spaced-font "Aporetic Sans"))
+      (proportionally-spaced-font "Aporetic Sans"))
   (set-face-attribute 'default nil :family mono-spaced-font :height 160)
   (set-face-attribute 'fixed-pitch nil :family mono-spaced-font :height 160)
   (set-face-attribute 'variable-pitch nil :family proportionally-spaced-font :height 1.0)
 
-    (defun my-modus-themes-custom-faces ()
+  (defun my-modus-themes-custom-faces ()
     "My customizations on top of the Modus themes.
 This function is added to the `modus-themes-post-load-hook'."
     (modus-themes-with-colors
@@ -29,9 +33,10 @@ This function is added to the `modus-themes-post-load-hook'."
        `(dashboard-text-banner ((,c :weight bold :foreground ,magenta-faint)))
        `(dashboard-heading ((,c :weight bold :foreground ,magenta-faint)))
        ;; font-lock
-       `(font-lock-constant-face ((,c :foreground ,blue-faint)))
-       `(font-lock-variable-name-face ((,c :foreground ,fg-main :slant italic)))
-      `(font-lock-type-face ((,c :foreground ,fg-alt)))
+       ;; `(font-lock-constant-face ((,c :foreground ,blue-faint)))
+       ;; `(font-lock-variable-name-face ((,c :foreground ,fg-main :slant normal)))
+       ;; `(font-lock-type-face ((,c :foreground ,fg-alt)))
+       ;; `(font-lock-preprocessor-face ((,c :foreground ,red-cooler)))
        ;; git
        `(git-commit-summary ((,c :foreground ,fg-alt :weight bold)))
        ;; ivy
@@ -56,11 +61,18 @@ This function is added to the `modus-themes-post-load-hook'."
        `(org-scheduled-previously ((,c :foreground ,fg-alt)))
        `(org-block ((,c :background ,bg-dim :extend t)))
        `(org-tag ((,c :foreground ,fg-dim :weight bold)))
-       `(org-done ((,c :foreground ,green-faint)))
+       `(org-done ((,c :foreground ,green :weight bold)))
        `(org-headline-done ((,c :foreground ,green-faint)))
-       `(org-todo ((,c :foreground ,red-faint :weight bold)))
+       `(org-todo ((,c :foreground ,red :weight bold)))
        `(org-verbatim ((,c :foreground ,magenta-faint)))
-       `(org-document-title ((,c :foreground ,fg-alt :weight bold)))))))
+       `(org-document-title ((,c :foreground ,fg-alt :weight bold)))
+       ;; vterm
+       `(vterm-color-cyan ((,c :foreground ,cyan-faint)))
+       `(vterm-color-red ((,c :foreground ,red-faint)))
+       `(vterm-color-green ((,c :foreground ,green-faint)))
+       `(vterm-color-blue ((,c :foreground ,blue-faint)))
+       `(vterm-color-magenta ((,c :foreground ,magenta-faint)))
+       `(vterm-color-yellow ((,c :fogrground ,yellow-faint)))))))
 
 (global-set-key (kbd "C-c m") 'modus-themes-toggle)
 
