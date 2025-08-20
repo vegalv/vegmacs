@@ -228,6 +228,10 @@
 (use-package rainbow-mode
   :ensure t)
 
+(use-package rustic
+  :config (setq rustic-lsp-client 'eglot)
+  :ensure t)
+
 (use-package symex
   :config
   (symex-initialize)
