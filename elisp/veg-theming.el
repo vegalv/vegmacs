@@ -33,10 +33,7 @@ This function is added to the `modus-themes-post-load-hook'."
        `(dashboard-text-banner ((,c :weight bold :foreground ,magenta-faint)))
        `(dashboard-heading ((,c :weight bold :foreground ,magenta-faint)))
        ;; font-lock
-       ;; `(font-lock-constant-face ((,c :foreground ,blue-faint)))
-       ;; `(font-lock-variable-name-face ((,c :foreground ,fg-main :slant normal)))
-       ;; `(font-lock-type-face ((,c :foreground ,fg-alt)))
-       ;; `(font-lock-preprocessor-face ((,c :foreground ,red-cooler)))
+       `(font-lock-variable-name-face ((,c :foreground ,fg-main :slant italic)))
        ;; git
        `(git-commit-summary ((,c :foreground ,fg-alt :weight bold)))
        ;; ivy
