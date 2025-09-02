@@ -6,24 +6,33 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file :no-error-if-file-is-missing)
 
-;; Rebind command to Meta, and option to Super
-(setq mac-command-modifier 'meta
-      mac-option-modifier 'super)
+;; macOS specific stuff
+(when (eq system-type 'darwin)
+  ;; The ls program shipped with macOS does not offer any options for
+  ;; listing directories before files.
+  ;; ls-lisp implements parts of the ls functionality in Emacs Lisp,
+  ;; allowing sorting of directories in dired.
+  (require 'ls-lisp)
+  (setq ls-lisp-dirs-first t
+        ls-lisp-use-insert-directory-program nil)
 
-;; Do not show confusing warnings when installing packages
-(add-to-list 'display-buffer-alist
-             '("\\`\\*\\(Warnings\\|Compile-Log\\)\\*\\'"
-               (display-buffer-no-window)
-               (allow-no-window . t)))
+  ;; Rebind command to Meta, and option to Super
+  (setq mac-command-modifier 'meta
+        mac-option-modifier 'super)
+
+  ;; Ensure that environment variables within Emacs look the same as in my shell
+  (exec-path-from-shell-initialize))
 
 ;;; Package loading
 (require 'package)
 (package-initialize)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
-;; Ensure that environment variables within Emacs look the same as in my shell
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
+;; Do not show confusing warnings when installing packages
+(add-to-list 'display-buffer-alist
+             '("\\`\\*\\(Warnings\\|Compile-Log\\)\\*\\'"
+               (display-buffer-no-window)
+               (allow-no-window . t)))
 
 ;; Set load path
 (add-to-list 'load-path (concat user-emacs-directory "packages/emacs-ob-racket"))
